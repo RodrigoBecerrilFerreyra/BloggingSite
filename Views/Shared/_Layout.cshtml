@@ -6,8 +6,8 @@
 <body>
 
     <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="contact.html">Contact</a>
+        <a class="@(ViewData["Current"] as string == "Index" ? "active" : null)" href="/">Home</a>
+        <a class="@(ViewData["Current"] as string == "Contact" ? "active" : null)" href="contact">Contact</a>
     </div>
 
     @RenderBody()
