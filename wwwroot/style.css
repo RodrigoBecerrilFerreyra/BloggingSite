@@ -1,0 +1,33 @@
+body {
+    margin: 40px auto;
+    max-width: 650px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #444;
+    padding: 0 10px
+}
+
+h1, h2, h3 {
+    line-height: 1.2
+}
+
+.topnav {
+    background-color: #444;
+    overflow: auto;
+}
+
+.topnav a {
+    float: left;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 18px;
+}
+
+.topnav a:hover {
+    background-color: #222;
+}
+
+.topnav a.active {
+    background-color: #666;
+}
