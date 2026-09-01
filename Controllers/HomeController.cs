@@ -7,6 +7,7 @@ public class HomeController : Controller
     public ViewResult Index()
     {
         ViewData["Current"] = "Index";
+        ViewData["Title"] = "Home";
         return View();
     }
 
@@ -14,6 +15,7 @@ public class HomeController : Controller
     public ViewResult Contact()
     {
         ViewData["Current"] = "Contact";
+        ViewData["Title"] = "Contact";
         return View();
     }
 }
