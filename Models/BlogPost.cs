@@ -7,6 +7,7 @@ public class BlogPost
 {
     public int Id {get; set;}
     public required string Title {get; set;}
+    public required string Author {get; set;}
     public required int CategoryId {get; set;}
     public required Category Category {get; set;}
     public string? Slug {get; set;}
