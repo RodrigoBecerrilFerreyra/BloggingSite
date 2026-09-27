@@ -1,6 +1,5 @@
 # User-added ignores
 wwwroot/resume.pdf
-Migrations/
 *.db
 
 # Auto-generated ignores
