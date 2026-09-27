@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>@(ViewData["Title"])</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="~/style.css">
 </head>
 <body>
 
@@ -13,6 +13,7 @@
     </div>
 
     @RenderBody()
+    @await RenderSectionAsync("Scripts", required: false)
     
 </body>
 </html>
