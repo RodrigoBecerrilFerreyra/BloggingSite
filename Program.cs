@@ -17,17 +17,21 @@ public class Program
 
         builder.Services.AddDbContext<BlogDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-        builder.Services.AddDefaultIdentity<User>(options =>
+        builder.Services.AddIdentity<User, IdentityRole>(options =>
         {
             options.Password.RequireDigit = false;
             options.Password.RequireNonAlphanumeric = false;
             options.User.RequireUniqueEmail = true;
         })
-            .AddRoles<IdentityRole>()
-            .AddEntityFrameworkStores<BlogDbContext>();
+        .AddEntityFrameworkStores<BlogDbContext>();
+
+        builder.Services.ConfigureApplicationCookie(options =>
+        {
+            options.LoginPath = "/Account/Login";
+            options.AccessDeniedPath = "/Account/AccessDenied";
+        });
 
         builder.Services.AddControllersWithViews();
-        builder.Services.AddRazorPages();
 
         var app = builder.Build();
 
@@ -44,7 +48,6 @@ public class Program
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}"
         );
-        app.MapRazorPages();
 
         app.Run();
     }
