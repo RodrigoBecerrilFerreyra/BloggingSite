@@ -3,6 +3,10 @@
 
 <h2>Login</h2>
 
+@{ViewData["Title"] = "Login";}
+
+<div asp-validation-summary="All"></div>
+
 <form asp-controller="Account" asp-action="Login" method="post">
     <label asp-for="Email">Email address: </label>
     <input asp-for="Email" required="true" />
