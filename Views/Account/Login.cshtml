@@ -1,0 +1,17 @@
+@using BlogSite.ViewModels
+@model LoginViewModel
+
+<h2>Login</h2>
+
+<form asp-controller="Account" asp-action="Login" method="post">
+    <label asp-for="Email">Email address: </label>
+    <input asp-for="Email" required="true" />
+    <br />
+    <label asp-for="Password">Password: </label>
+    <input asp-for="Password" required="true" />
+    <br />
+    <label asp-for="RememberMe">Remember me? </label>
+    <input asp-for="RememberMe" type="checkbox" />
+    <br />
+    <button type="submit">Submit</button>
+</form>
