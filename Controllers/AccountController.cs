@@ -39,4 +39,12 @@ public class AccountController(SignInManager<User> sim) : Controller
             return View();
         }
     }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Logout()
+    {
+        await _sim.SignOutAsync();
+        return RedirectToAction("Index", "Home");
+    }
 }
