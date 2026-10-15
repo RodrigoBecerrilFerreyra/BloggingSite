@@ -1,6 +1,6 @@
 # User-added ignores
 wwwroot/resume.pdf
-*.db
+*.db*
 
 # Auto-generated ignores
 
