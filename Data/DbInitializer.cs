@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -30,15 +31,18 @@ public static class DbInitializer
         {
             // add the admin user to the database
             // reading the email and password will fail if not configured correctly
-            string email = config["Admin:Email"]!;
-            string password = config["Admin:Password"]!;
+            string? email = config["Admin:Email"];
+            string? password = config["Admin:Password"];
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                throw new InvalidOperationException("Admin email or password are not set.");
+            }
+
             var result = await usermanager.CreateAsync(new User{UserName = email, Email = email}, password);
             if (!result.Succeeded)
             {
-                foreach (var e in result.Errors)
-                {
-                    throw new InvalidOperationException(e.Description);
-                }
+                var errors = string.Join("; ", result.Errors.Select(e => e.Description));
+                throw new InvalidOperationException($"Could not create admin user: {errors}");
             }
         }
     }
