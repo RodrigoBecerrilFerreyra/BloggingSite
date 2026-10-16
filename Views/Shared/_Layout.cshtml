@@ -7,9 +7,10 @@
 <body>
 
     <div class="topnav">
-        <a class="@(ViewData["Current"] as string == "Index" ? "active" : null)" href="/">Home</a>
+        <a class="@(ViewData["Current"] as string == "Index"   ? "active" : null)" href="/">Home</a>
         <a class="@(ViewData["Current"] as string == "Contact" ? "active" : null)" href="contact">Contact</a>
-        <a class="@(ViewData["Current"] as string == "Blog" ? "active" : null)" href="blog">Blog</a>
+        <a class="@(ViewData["Current"] as string == "Blog"    ? "active" : null)" href="blog">Blog</a>
+        <a class="@(ViewData["Current"] as string == "Admin"   ? "active" : null)" style="float:right" href="admin">Admin</a>
     </div>
 
     @RenderBody()
