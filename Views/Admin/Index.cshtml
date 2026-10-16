@@ -1,0 +1,28 @@
+@using BlogSite.ViewModels
+@model BlogIndexViewModel
+
+<h2>Admin Pages</h2>
+
+<h3>Most recent blogposts:</h3>
+<ul>
+  @foreach(var post in Model.Posts)
+  {
+    <li>@post.Title</li>
+  }
+</ul>
+
+<h3>Categories:</h3>
+<ul>
+  @foreach(var cat in Model.Categories)
+  {
+    <li>@cat.Name</li>
+  }
+</ul>
+
+<h3>Tags:</h3>
+<ul>
+  @foreach(var tag in Model.Tags)
+  {
+    <li>@tag.Name</li>
+  }
+</ul>
